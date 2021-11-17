@@ -7,7 +7,7 @@
 
 #include "../utils/hash.h"
 #include "../utils/memory.h"
-
+#include "../utils/logging.h"
 #include <cassert>
 #include <list>
 #include <map>
@@ -86,6 +86,17 @@ public:
     /* This is needed only by landmark graph factories and will disappear
        when moving landmark graph creation there. */
     LandmarkGraph();
+
+    // pretty print
+    void print_landmarks() {
+        utils::g_log << "printing landmarks" << "\n";
+        for (auto &node : nodes) {
+            Landmark lm = node->get_landmark();
+            for (auto &fact : lm.facts) {
+                utils::g_log << fact.var << fact.value << "\n";
+            }
+        }
+    }
 
     // needed by both landmarkgraph-factories and non-landmarkgraph-factories
     const Nodes &get_nodes() const {
