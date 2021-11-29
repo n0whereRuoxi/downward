@@ -88,15 +88,32 @@ public:
     LandmarkGraph();
 
     // pretty print
-    void print_landmarks() {
+    void print_landmarks(const std::shared_ptr<AbstractTask> &task) {
         utils::g_log << "printing landmarks" << "\n";
         for (auto &node : nodes) {
+            
             Landmark lm = node->get_landmark();
             for (auto &fact : lm.facts) {
-                utils::g_log << fact.var << fact.value << "\n";
+                utils::g_log << task->get_fact_name(fact) << " ";
             }
+            for (const auto &child : node->children) {
+                LandmarkNode &child_node = *(child.first);
+                Landmark lmchild = child_node.get_landmark();
+                for (auto &fact : lmchild.facts) {
+                    utils::g_log << "child: " << task->get_fact_name(fact) << " ";
+                }
+            }
+            utils::g_log << "\n";
         }
     }
+
+    // void print_node(LandmarkNode *node) {
+    //     Landmark lm = node->get_landmark();
+    //     for (auto &fact : lm.facts) {
+    //         utils::g_log << task->get_fact_name(fact);
+    //     }
+    //     utils::g_log << "\n";
+    // }
 
     // needed by both landmarkgraph-factories and non-landmarkgraph-factories
     const Nodes &get_nodes() const {

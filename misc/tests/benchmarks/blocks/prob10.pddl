@@ -11,13 +11,13 @@
     ( on-table b000 )
     ( on b001 b000 )
     ( on b002 b001 )
-    ( on b003 b002 )
-    ( clear b003 )
-    ( hand-empty )
+    ( clear b002 )
+    ( holding b003 )
   )
   ( :goal
     ( and
-      ( clear b000 )
+      ( on-table b001 )
+      ( clear b001 )
     )
   )
 )

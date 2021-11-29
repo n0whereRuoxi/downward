@@ -70,7 +70,7 @@ shared_ptr<LandmarkGraph> LandmarkFactory::compute_lm_graph(
         utils::g_log << lm_graph->get_num_edges() << " edges" << endl;
     }
 
-    lm_graph->print_landmarks();
+    lm_graph->print_landmarks(task);
 
     return lm_graph;
 }

@@ -17,7 +17,8 @@
   )
   ( :goal
     ( and
-      ( clear b000 )
+      ( on-table b001 )
+      ( clear b001 )
     )
   )
 )
