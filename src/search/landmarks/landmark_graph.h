@@ -89,7 +89,8 @@ public:
 
     // pretty print
     void print_landmarks(const std::shared_ptr<AbstractTask> &task) {
-        utils::g_log << "printing landmarks" << "\n";
+        utils::g_log << "Ruoxi printing landmarks" << "\n";
+        utils::g_log << "$$$$$$$$$$$$$" << "\n";
         for (auto &node : nodes) {
             
             Landmark lm = node->get_landmark();
@@ -105,6 +106,7 @@ public:
             }
             utils::g_log << "\n";
         }
+        utils::g_log << "$$$$$$$$$$$$$" << "\n";
     }
 
     // void print_node(LandmarkNode *node) {
